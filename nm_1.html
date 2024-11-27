@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>치열한 도시에 하는 더 치열한 </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<style>
+	        @media (max-width: 768px) { /* 태블릿 환경 */
+            table {
+                font-size: 0.9rem;
+            ]}
+
+            td {
+                padding: 8px;
+            }
+
+            .time {
+                font-size: 0.9rem;
+                padding-right: 5px;
+            }
+        }
+
+        @media (max-width: 480px) { /* 모바일 환경 */
+            body {
+                font-size: 0.8rem;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            td {
+                padding: 5px;
+                border: none; /* 모바일에서는 테두리 제거 */
+            }
+
+            .time {
+                font-size: 0.8rem;
+                padding-right: 5px;
+                background-color: #222; /* 더 어두운 배경색 */
+            }
+        }
+
+
+        @font-face {
+        font-family: 'SM3';
+        src: url('SM3견출명조-Regular.otf') format('opentype');
+        }
+		body {
+			margin: 0;
+			display: flex;
+			background-color: black;
+		}
+		body::-webkit-scrollbar {
+        display: none; /* 웹킷 브라우저에서 스크롤바 숨기기 */
+   		}
+
+		span {
+			display: flex;
+			flex-direction: column; /* 수직 정렬 */
+			align-items: center; 
+			width: 50%;
+			height: 100vh; /* 전체 화면 높이를 설정 */
+			box-sizing: border-box;
+			text-align: left;
+			line-height: 2;
+		}
+		p	{
+			padding: 5px;
+			text-align: left;
+			border: 1px solid black;
+			background-color: white;
+		}
+		#left {
+			width: 50%;
+/*			background-color: #00ffff;*/
+/*			border: 0.5px solid black;*/
+			box-sizing: border-box;
+			line-height: 2;
+/*			height: 100vh; /* 전체 화면 높이 */*/
+		}
+		#right {
+			width: 50%;
+			background-color: white;
+			flex-grow: 1; /* 나머지 공간을 채움 */
+			overflow-y: scroll; /* 오른쪽 영역에서만 스크롤 */
+			height: 100vh; /* 화면 높이 */
+			size: 20pt;
+		}
+		[type="radio"] {
+			appearance: none;
+			border: max(2px, 0.1em) solid gray;
+			border-radius: 50%;
+			width: 3em;
+			height: 3em;
+			transition: border 0.5s ease-in-out;
+		}
+		[type="radio"]:checked {
+  			border: 0.8em solid #0078FF  ;
+			background-color: white;
+
+}
+		table {
+			font-family: "SM3";
+			text-align: left;
+			padding-left: 10px;
+			font-size: 60px;
+			color: white;
+			vertical-align: top;
+		}
+		.time {
+			padding-right:40px ;
+			background-color: black;
+			position: sticky;
+			top: 0;
+		}
+		td {
+			padding: 20px;
+			border: 1px solid black;
+			vertical-align: top;
+		}
+	</style>
+</head>
+<body>
+<table>
+		<tr><td class="time">09.01</td><td><input type="radio" name="task1" checked> 15-19 일민</td></tr>
+		<tr><td class="time" rowspan="7">09.02</td><td><input type="radio" name="task2"checked> 14:00 시각디자인현장이슈</td></tr>
+		<tr><td><input type="radio" name="task3" disabled> 주민등록증 체크</td></tr>
+		<tr><td><input type="radio" name="task4"checked> 독일어 드랍!</td></tr>
+		<tr><td><input type="radio" name="task5" disabled> 도시미인-전시소개 자막 넣기, 컷편집</td></tr>
+		<tr><td><input type="radio" name="task6" checked> html 생활코딩 강의 → 11개 듣기</td></tr>
+		<tr><td><input type="radio" name="task7"checked> text event 반영</td></tr>
+		<tr><td><input type="radio" name="task8" checked> 스픽 1 DAY !!!</td></tr>
+		<tr><td class="time" rowspan="4">09.03 </td><td><input type="radio" name="task9" checked> 11:30 배봉</td></tr>
+		<tr><td><input type="radio" name="task10" checked> 도미-전시소개 자막, 컷편집</td></tr>
+		<tr><td><input type="radio" name="task11" checked> 도미-시청 인터뷰 자막</td></tr>
+		<tr><td><input type="radio" name="task12" disabled> recode - 사진 넣기</td></tr>
+		<tr><td class="time"rowspan="4">09.04</td><td><input type="radio" name="task13" checked> 14:00 남박 알바 면접</td></tr>
+		<tr><td><input type="radio" name="task14" checked> html 생활코딩 듣기</td></tr>
+		
+		<tr><td><input type="radio" name="task15" checked> 스픽 1 DAY !!</td></tr>
+		<tr><td><input type="radio" name="task16" checked> recode - a,i,z</td></tr>
+		<tr><td class="time" rowspan="6">09.05</td><td><input type="radio" name="task17" checked> 14:00 기초입체디자인</td></tr>
+		<tr><td><input type="radio" name="task18" checked> 19:30 whitespreadsheet</td></tr>
+		<tr><td><input type="radio" name="task19" checked> 22:30 recode </td></tr>
+		<tr><td><input type="radio" name="task20" checked> 스픽 1 DAY</td></tr>
+		<tr><td><input type="radio" name="task21" disabled> &lt;/recode&gt; h,r,u,d,n Ⓗ,Ⓡ,Ⓤ,Ⓓ,Ⓝ</td></tr>
+		<tr><td><input type="radio" name="task22" checked> html 생활코딩</td></tr>
+		<tr><td class="time" rowspan="4">09.06</td><td><input type="radio" name="task23" checked> 14:00 타이포그래피시스템</td></tr>
+		<tr><td><input type="radio" name="task24" checked> 스픽 1 DAY</td></tr>
+		<tr><td><input type="radio" name="task25" checked> M,L,R,T</td></tr>
+		<tr><td><input type="radio" name="task26" disabled> 문서양식 디자인</td></tr>
+		<tr><td class="time" rowspan="5">09.07</td><td><input type="radio" name="task27" checked> 10:00 - 16:00 남박</td></tr>
+		<tr><td><input type="radio" name="task28" disabled> 김이인정님게 연락→ 시디현장이슈</td></tr>
+		<tr><td><input type="radio" name="task29" checked> 시디현장이슈 리서치</td></tr>
+		<tr><td><input type="radio" name="task30" disabled> 문서양식 디자인 → body, footer.</td></tr>
+		<tr><td><input type="radio" name="task31" disabled> 스픽 1 DAY</td></tr>
+		<tr><td class="time"rowspan="7">09.08</td><td><input type="radio" name="task32" checked> 15:00 - 19:00 봉사자 일민</td></tr>
+		<tr><td><input type="radio" name="task33" checked> 21:30 디자인 리서치 회의</td></tr>
+		<tr><td><input type="radio" name="task34" checked> 교보문고 !!!</td></tr>
+		<tr><td><input type="radio" name="task35" disabled> 김이인정 연락 → 시디현장이슈</td></tr>
+		<tr><td><input type="radio" name="task36" cdisabled> 문서양식 디자인 완</td></tr>
+		<tr><td><input type="radio" name="task37" checked> 스픽 1 DAY;</td></tr>
+		<tr><td><input type="radio" name="task38" checked> 전시봉사 9.15 x 연락</td></tr>
+		<tr><td class="time" rowspan="4">09.09</td><td><input type="radio" name="task39" checked> 09:00 이슬아 강연 신청!!!!!!!!</td></tr>
+		<tr><td><input type="radio" name="task40" checked> 12:10 교수님 면담</td></tr>
+		<tr><td><input type="radio" name="task41" checked> 문서양식디자인!!! →1차</td></tr>
+		<tr><td><input type="radio" name="task42" checked> 기입디 하...</td></tr>
+		<tr><td class="time" rowspan="8">09.10</td><td><input type="radio" name="task43" checked> 10:00 제너러티브 II</td></tr>
+		<tr><td><input type="radio" name="task44" checked> 14:00 세한문.</td></tr>
+		<tr><td><input type="radio" name="task45" disabled> 문서양식 디자인 2차수정.</td></tr>
+		<tr><td><input type="radio" name="task46" checked> dictionary : Ⓑ</td></tr>
+		<tr><td><input type="radio" name="task47" disabled> 제발 김이인정님 말하기!!!</td></tr>
+		<tr><td><input type="radio" name="task48" disabled> 인트로, 인서트 소스.</td></tr>
+		<tr><td><input type="radio" name="task49" checked> 시디현장이슈 → 질문</td></tr>
+		<tr><td><input type="radio" name="task50" checked> 기입디 보완.</td></tr>
+		<tr><td class="time" rowspan="6">09.11</td><td><input type="radio" name="task51" checked> 17:00 포푸리 수령☆</td></tr>
+		<tr><td><input type="radio" name="task52" checked> 김이인정!!!</td></tr>
+		<tr><td><input type="radio" name="task53" checked> 저녁 팀플.</td></tr>
+		<tr><td><input type="radio" name="task54" checked> 기입디→보완완성!!!</td></tr>
+		<tr><td><input type="radio" name="task55" checked> Dic : ⓗ,ⓧ</td></tr>
+		<tr><td><input type="radio" name="task56" checked disabled> 도미 : 인트로, 인서트,</td></tr>
+		<tr><td class="time" rowspan="4">09.12</td><td><input type="radio" name="task57" checked> 11:30 촨커</td></tr>
+		<tr><td><input type="radio" name="task58" checked> 16:00 기입디</td></tr>
+		<tr><td><input type="radio" name="task59" checked> 19:30whitespreadsheet</td></tr>
+
+		<tr><td><input type="radio" name="task60" checked> 22:30 &lt;/recode&gt; </td></tr>
+		<tr><td class="time" rowspan="5">09.13</td><td><input type="radio" name="task61" checked> 시디현장이슈 판형</td></tr>
+		<tr><td><input type="radio" name="task62" disabled> 14:00 타이포그래피 시스템.</td></tr>
+		<tr><td><input type="radio" name="task63" checked> 문서양식디자인 수정. → 아침.☆☆</td></tr>
+		<tr><td><input type="radio" name="task64" disabled> 팀플부분 정리.</td></tr>
+		<tr><td><input type="radio" name="task65" checked> 저녁 팀플</td></tr>
+		<tr><td class="time" rowspan="2">09.14</td><td><input type="radio" name="task66" checked> 남박 10 - 16</td></tr>
+		<tr><td><input type="radio" name="task67" disabled> dictionary : W,Y</td></tr>
+		<tr><td class="time" rowspan="4">09.15</td><td><input type="radio" name="task68" disabled> dictionary : Y</td></tr>
+		<tr><td><input type="radio" name="task69" checked> 타이포 - 한글, 영문.</td></tr>
+		<!-- <tr><td class="time"></td><td><input type="radio" name="task70" checked> 13:15 예배</td></tr> -->
+		<tr><td><input type="radio" name="task71" checked> 21:00 시디현장이슈 회의.</td></tr>
+		<tr><td><input type="radio" name="task72" disabled> 도미영상 : 자막정리, 구간정하기.</td></tr>
+		<tr><td class="time" rowspan="2">09.16</td><td><input type="radio" name="task73" checked> 14-17 시디현장이슈</td></tr>
+		<tr><td><input type="radio" name="task74" disabled> wearable paper sketch.</td></tr>
+		<tr><td class="time" rowspan="2">09.17</td><td><input type="radio" name="task75" checked> 10-14 제너러티브 II</td></tr>
+		<tr><td><input type="radio" name="task76" checked> 14-17 세한문</td></tr>
+		<tr><td class="time" rowspan="2">09.18</td><td><input type="radio" name="task77" checked disabled> dict: Y,W.</td></tr>
+		<tr><td><input type="radio" name="task78" checked disabled> wearable paper sketch.</td></tr>
+		<tr><td class="time" rowspan="5">09.19</td><td><input type="radio" name="task79" checked> 14-19 개같은 기입디</td></tr>
+		<tr><td><input type="radio" name="task80" checked> 19:30 화이트스프</td></tr>
+		<tr><td><input type="radio" name="task81" checked> wearable paper sketch</td></tr>
+		<tr><td><input type="radio" name="task82" disabled> 타이포 3개 붙이기.</td></tr>
+		<tr><td><input type="radio" name="task83" disabled> 시디현장이슈 굿즈 수정.</td></tr>
+		<tr><td class="time" rowspan="2">09.20</td><td><input type="radio" name="task84" checked> 14-17 타이포 (3시, 서초구)</td></tr>
+		<tr><td><input type="radio" name="task85" disabled> 19-20:30 수제종이 워크샵 ⇒ 준비물 챙겨</td></tr>
+		<tr><td class="time" rowspan="2">09.21</td><td><input type="radio" name="task86" checked> 남박 10 - 16</td></tr>
+		<tr><td><input type="radio" name="task87" checked> 22:30 &lt;/recode&gt;</td></tr>
+		<tr><td class="time">09.22</td><td><input type="radio" name="task88" checked> 일민 15-19.</td></tr>
+		<tr><td class="time" rowspan="6">09.23</td><td><input type="radio" name="task89" checked> 시디현장이슈발주</td></tr>
+		<tr><td><input type="radio" name="task90" checked> 휘경2동 주민센터 주민등록증 찾아가..</td></tr>
+		<tr><td><input type="radio" name="task91" checked> 10:00 교정</td></tr>
+		<tr><td><input type="radio" name="task92" checked> 보건증 떼기 → 동대문구 보건소.</td></tr>
+		<tr><td><input type="radio" name="task93" checked> 14:00 시디현장이슈</td></tr>
+		<tr><td><input type="radio" name="task94" checked> &lt;/recode&gt; 전시 작품 준비. ☆☆☆(제곱기호)</td></tr>
+		<tr><td class="time" rowspan="5">09.24</td><td><input type="radio" name="task95" checked> 10:00 제너러티브 II</td></tr>
+		<tr><td><input type="radio" name="task96" checked> 14:00 세한문.</td></tr>
+		<tr><td><input type="radio" name="task97" disabled> 18:10-50 하늘 공연.</td></tr>
+		<tr><td><input type="radio" name="task98" checked> 09:30 청소점검</td></tr>
+		<tr><td><input type="radio" name="task99" checked> &lt;/recode&gt; 수정</td></tr>
+
+		  <tr><td class="time" rowspan="3">09.25</td><td><input type="radio" name="task100" checked> 12:00 채은</td></tr>
+		<tr><td><input type="radio" name="task101" checked> 도시미인 ppt → 넘겨주기.</td></tr>
+		<tr><td><input type="radio" name="task102" checked> 기입디 구체화, 제기된 문제. ☆</td></tr>
+		<tr><td class="time" rowspan="3">09.26</td><td><input type="radio" name="task103" checked> 14:00 기입디.</td></tr>
+		<tr><td><input type="radio" name="task104" checked> 18:30 이슬아.</td></tr>
+		<tr><td><input type="radio" name="task105" checked> 저녁 동준.</td></tr>
+		<tr><td class="time" rowspan="7">09.27</td><td><input type="radio" name="task106" checked> 10:00 오프닝</td></tr>
+		<tr><td><input type="radio" name="task107" checked> 12:00 희정.</td></tr>
+		<tr><td><input type="radio" name="task108" checked> 17:00 클로징, 철수.</td></tr>
+		<tr><td><input type="radio" name="task109" checked> 저녁 - 광광김</td></tr>
+		<tr><td><input type="radio" name="task110" checked> 14:00 타이포그래피시스템</td></tr>
+		<tr><td><input type="radio" name="task111" checked> 10.5,6(엑스표) 알바, 봉사 빼기.</td></tr>
+		<tr><td><input type="radio" name="task112" disabled> wearable paper - size test.</td></tr>
+		<tr><td class="time" rowspan="2">09.28</td><td><input type="radio" name="task113" checked> 남박 10 - 16</td></tr>
+		<tr><td><input type="radio" name="task114" checked> 샤프심 주기</td></tr>
+		<tr><td class="time" rowspan="2">09.29</td><td><input type="radio" name="task115" > 일민 15-19.</td></tr>
+		<tr><td><input type="radio" name="task116" checked> 22:00 온라인 독서실</td></tr>
+		<tr><td class="time" rowspan="7">09.30</td><td><input type="radio" name="task117" disabled> wp-인쇄</td></tr>
+		<tr><td><input type="radio" name="task118" checked> 14:00 시디현</td></tr>
+		<tr><td><input type="radio" name="task119" checked> 12:30 시디현 굿즈포장</td></tr>
+		<tr><td><input type="radio" name="task120" checked> 9-12 도미 최종보고회</td></tr>
+		<tr><td><input type="radio" name="task121" disabled> wp 최소 6개 면은 만들자…. </td></tr>
+		<tr><td><input type="radio" name="task122" disabled> 자간 과제</td></tr>
+		<tr><td><input type="radio" name="task123" checked> 출입국사실증명서!!!!</td></tr>
+			<tr><td class="time" rowspan="3">10.01</td><td><input type="radio" name="task124" checked> 제너러 휴강</td></tr>
+		<tr><td><input type="radio" name="task125" checked> 세한문 휴강</td></tr>
+		<tr><td><input type="radio" name="task126" checked> 19:00 펄티펄 회의</td></tr>
+		<tr><td class="time" >10.03</td><td><input type="radio" name="task127" checked> 14:00 기입디 웨어러블 페이퍼 마감..</td></tr>
+		<tr><td class="time" rowspan="5">10.04</td><td><input type="radio" name="task128" checked> 14:00 타이포그래피시스템</td></tr>
+		<tr><td><input type="radio" name="task129" disabled> 자간 과제</td></tr>
+		<tr><td><input type="radio" name="task130" disabled> 문서양식_type_1</td></tr>
+		<tr><td><input type="radio" name="task131" disabled> 문서양식_type_2</td></tr>
+		<tr><td><input type="radio" name="task132" disabled> 문서양식_type_3</td></tr>
+		<tr><td class="time" rowspan="3">10.05</td><td><input type="radio" name="task133" checked> 엄마</td></tr>
+		<tr><td><input type="radio" name="task134" checked> 1008 제너러 과제</td></tr>
+		<tr><td><input type="radio" name="task135" checked> 1010 기입디 나머지 붙이기</td></tr>
+		<tr><td class="time" rowspan="3">10.06</td><td><input type="radio" name="task136" checked> 1007 레코드 회의 아이디어 정리</td></tr>
+		<tr><td><input type="radio" name="task137" checked> 1008 펄티펄 회의 아이디어 정리</td></tr>
+		<tr><td><input type="radio" name="task138" checked> 기입디 모형</td></tr>
+		<tr><td class="time" rowspan="5">10.07</td><td><input type="radio" name="task139" checked> 14:00 시디현</td></tr>
+
+		<tr><td><input type="radio" name="task140" checked> 16:00 채은 회의</td></tr>
+		<tr><td><input type="radio" name="task141" disabled> 기입디 발표파일(포스터 빼고)</td></tr>
+		<tr><td><input type="radio" name="task142" disabled> 문서양식디자인 - paper</td></tr>
+		<tr><td><input type="radio" name="task143" disabled> 문서양식디자인 - web</td></tr>
+		<tr><td class="time" rowspan="8">10.08</td><td><input type="radio" name="task144" checked> 08:00 조형관 촬영!!!!!</td></tr>
+		<tr><td><input type="radio" name="task145" checked> 10:00 제너러2</td></tr>
+		<tr><td><input type="radio" name="task146" checked> 14:00 세한문</td></tr>
+		<tr><td><input type="radio" name="task147" disabled> 시디현 기말과제 질문하기</td></tr>
+		<tr><td><input type="radio" name="task148" disabled> 기입디 포스터 완</td></tr>
+		<tr><td><input type="radio" name="task149" disabled> 기입디 발표자료 완</td></tr>
+		<tr><td><input type="radio" name="task150" disabled> 타이포 - paper 수정</td></tr>
+		<tr><td><input type="radio" name="task151" disabled> 타이포 - web 시작</td></tr>
+		<tr><td class="time" rowspan="2">10.09</td><td><input type="radio" name="task152" checked> 제주책 가제본 반납일</td></tr>
+		<tr><td><input type="radio" name="task153" disabled> 타이포 - 온라인클래스 올리기</td></tr>
+		<tr><td class="time" rowspan="9">10.10</td><td><input type="radio" name="task154" checked> 11:30 명란식당</td></tr>
+		<tr><td><input type="radio" name="task155" checked> 14:00 기입디 웨어러블 ㄹㅇㄹㅇ 마감</td></tr>
+		<tr><td><input type="radio" name="task156" checked> 18:00 와드 이태원</td></tr>
+		<tr><td><input type="radio" name="task157" checked> 웨어러블 발표 정리</td></tr>
+		<tr><td><input type="radio" name="task158" checked> 수업 후 타이포 과제 마무리</td></tr>
+		<tr><td><input type="radio" name="task159" checked> 아침에 타이포클래스 업로드</td></tr>
+		<tr><td><input type="radio" name="task160" checked> 아침에 웨어러블 포스터 출력</td></tr>
+		<tr><td><input type="radio" name="task161" checked> 시디현 기말과제 질문 메일</td></tr>
+		<tr><td><input type="radio" name="task162" disabled> 22:30 레코드 스터디</td></tr>
+		<tr><td class="time" rowspan="5">10.11</td><td><input type="radio" name="task163" checked> 도미영상작업 - client earth 파트 분량 결정 및 자르기</td></tr>
+		<tr><td><input type="radio" name="task164" checked> 도미영상작업 - 시민인터뷰, 이미지 넣기</td></tr>
+		<tr><td><input type="radio" name="task165" checked> 도미영상작업 - 모션그래픽 및 요소 효과</td></tr>
+		<tr><td><input type="radio" name="task166" checked> 14:00 타이포그래피시스템</td></tr>
+		<tr><td><input type="radio" name="task167" checked> 교정예약(16일)</td></tr>
+		<tr><td class="time" rowspan="4">10.12</td><td><input type="radio" name="task168" checked> 10-16 남박</td></tr>
+		<tr><td><input type="radio" name="task169" checked> 도미영상작업 - 자막 텍스트 만들기</td></tr>
+		<tr><td><input type="radio" name="task170" checked> 도미영상작업</td></tr>
+		<tr><td><input type="radio" name="task171" disabled> 10:00 배봉출근</td></tr>
+		<tr><td class="time" rowspan="6">10.13</td><td><input type="radio" name="task172" checked> 15-19 일민</td></tr>
+		<tr><td><input type="radio" name="task173" checked> 도미영상작업 끝 !</td></tr>
+		<tr><td><input type="radio" name="task174" disabled> 제너러2과제</td></tr>
+		<tr><td><input type="radio" name="task175" checked> 도미영상작업 - 시민인터뷰 자막</td></tr>
+		<tr><td><input type="radio" name="task176" checked> 도미영상작업 - 인서트, 인트로 효과음 입히기</td></tr>
+		<tr><td><input type="radio" name="task177" checked> 도미영상작업 - 인서트, 인트로 효과음 입히기</td></tr>
+		<tr><td class="time" rowspan="6">10.14</td><td><input type="radio" name="task178" checked> 영상 업로드 단톡방 공지</td></tr>
+		<tr><td><input type="radio" name="task179" checked> 충치치료 예약 전화</td></tr>
+		<tr><td><input type="radio" name="task180" checked> 14:00 시디현</td></tr>
+		<tr><td><input type="radio" name="task181" disabled> 문서양식디자인 수정</td></tr>
+		<tr><td><input type="radio" name="task182" checked> 제너러2 과제</td></tr>
+		<tr><td><input type="radio" name="task183" checked> 펄티펄 아이디어 정리</td></tr>
+
+
+
+
+		  <tr><td class="time" rowspan="8">10.15</td><td><input type="radio" name="task184" disabled> 8:00 학교 가기</td></tr>
+		<tr><td><input type="radio" name="task185" disabled> 렌즈사기</td></tr>
+		<tr><td><input type="radio" name="task186" checked> 10:00 제너러2</td></tr>
+		<tr><td><input type="radio" name="task187" checked> 14:00 세한문</td></tr>
+		<tr><td><input type="radio" name="task188" checked> 17:00 간식행사</td></tr>
+		<tr><td><input type="radio" name="task189" checked> 20:00 펄티펄 회의</td></tr>
+		<tr><td><input type="radio" name="task190" checked> 문서양식 디자인 수정!!!! - PAPER</td></tr>
+		<tr><<td><input type="radio" name="task191" checked> 기입디 포스터 작업</td></tr>
+		<tr><td class="time" rowspan="9">10.16</td><td><input type="radio" name="task192" checked> 11:30 치과 → 15:00</td></tr>
+		<tr><td><input type="radio" name="task193" checked> 헌책 구비</td></tr>
+		<tr><td><input type="radio" name="task194" checked> 포스터 뽑아보기 - 과사 플로터</td></tr>
+		<tr><td><input type="radio" name="task195" checked> 17:30 간식행사</td></tr>
+		<tr><td><input type="radio" name="task196" checked> 문서양식 - mobile</td></tr>
+		<tr><td><input type="radio" name="task197" disabled> 문서양식 - web</td></tr>
+		<tr><td><input type="radio" name="task198" checked> 기입디 book sculpture 구상</td></tr>
+		<tr><td><input type="radio" name="task199" disabled> recode 발표 정리</td></tr>
+		<tr><td><input type="radio" name="task200" checked> 포스터 뽑기</td></tr>
+		<tr><td class="time" rowspan="3">10.17</td><td><input type="radio" name="task201" checked> 14:00 기입디</td></tr>
+		<tr>><td><input type="radio" name="task202" checked> 저녁 지우님</td></tr>
+		<tr><td><input type="radio" name="task203" checked> 22:30 recode</td></tr>
+		<tr><td class="time" rowspan="4">10.18</td><td><input type="radio" name="task204" checked> 11:00 도미 보고서 크리틱</td></tr>
+		<tr><td><input type="radio" name="task205" checked> 14:00 타이포그래피 시스템 : 문서양식</td></tr>
+		<tr><td><input type="radio" name="task206" checked> 영상보고서 제출</td></tr>
+		<tr><td><input type="radio" name="task207" disabled> 문서양식 수정</td></tr>
+		<tr><td class="time" rowspan="2">10.19</td><td><input type="radio" name="task208" checked> 10-16 남박</td></tr>
+		<tr><td><input type="radio" name="task209" checked> 기입디 테스트</td></tr>
+		<tr><td class="time" rowspan="4">10.20</td><td><input type="radio" name="task210" checked> 15-19 일민</td></tr>
+		<tr><td><input type="radio" name="task211" checked> 문서양식 수정</td></tr>
+		<tr><td><input type="radio" name="task212" checked> 펄티펄 회의정리(1차)</td></tr>
+		<tr><td><input type="radio" name="task213" checked> 타이포 포스터 약간 정리</td></tr>
+
+
+		 <tr><td class="time" rowspan="4">10.21</td><td><input type="radio" name="task214" checked> 14:00 시디현</td></tr>
+		<tr><td><input type="radio" name="task215" checked> 시디현 끝나고 포스터디자인 회의</td></tr>
+		<tr><td><input type="radio" name="task216" disabled> 문서양식 ㄹㅇ 수정</td></tr>
+		<tr><td><input type="radio" name="task217" checked> 노션 공지, 메일 보내기</td></tr>
+		<tr><td class="time" rowspan="4">10.22</td><td><input type="radio" name="task218" checked> 10:00 제너러2</td></tr>
+		<tr><td><input type="radio" name="task219" checked> 14:00 세한문</td></tr>
+		<tr><td><input type="radio" name="task220" checked> w8</td></tr>
+		<tr><td><input type="radio" name="task221" checked> w7</td></tr>
+		<tr><td class="time" rowspan="5">10.23</td><td><input type="radio" name="task222" checked> 13:45 교정</td></tr>
+		<tr><td><input type="radio" name="task223" checked> w6</td></tr>
+		<tr><td><input type="radio" name="task224" checked> w4</td></tr>
+		<tr><td><input type="radio" name="task225" checked> w2</td></tr>
+		<tr><td><input type="radio" name="task226" disabled> 문서양식 디자인 수정</td></tr>
+		<tr><td class="time" rowspan="7">10.24</td><td><input type="radio" name="task227" checked> 14:00 기입디</td></tr>
+		<tr><td><input type="radio" name="task228" checked> 19:00 타이포 회의</td></tr>
+		<tr><td><input type="radio" name="task229" checked> 저녁 문선</td></tr>
+		<tr><td><input type="radio" name="task230" checked> 22:30 레코드</td></tr>
+		<tr><td><input type="radio" name="task231" checked> 타이포 회의 줌링크 공유</td></tr>
+		<tr><td><input type="radio" name="task232" checked> 타이포 아이디어 정리</td></tr>
+		<tr><td><input type="radio" name="task233" checked> 문서양식 수정 - 개찐</td></tr>
+		<tr><td class="time" rowspan="3">10.25</td><td><input type="radio" name="task234" checked> 14:00 타이포</td></tr>
+		<tr><td><input type="radio" name="task235" checked> 동생집 방문</td></tr>
+		<tr><td><input type="radio" name="task236" disabled> TASK 01-4</td></tr>
+		<tr><td class="time" rowspan="2">10.26</td><td><input type="radio" name="task237" checked> 10-16 남박</td></tr>
+		<tr><td><input type="radio" name="task238" checked> 책파내기 - 80%</td></tr>
+		<tr><td class="time" rowspan="2">10.27</td><td><input type="radio" name="task239" checked> 15-19 일민</td></tr>
+		<tr><td><input type="radio" name="task240" disabled> 세한문 1바퀴</td></tr>
+		<tr><td class="time" rowspan="4">10.28</td><td><input type="radio" name="task241" checked> 14:00 시디현</td></tr>
+		<tr><td><input type="radio" name="task242" checked> 제너러2 과제</td></tr>
+		<tr><td><input type="radio" name="task243" checked> 세한문 공부..</td></tr>
+		<tr><td><input type="radio" name="task244" checked> 펄티펄 회의 시간 15분만 늦추자 부탁</td></tr>
+		<tr><td class="time" rowspan="4">10.29</td><td><input type="radio" name="task245" checked> 10:00 제너러2</td></tr>
+		<tr><td><input type="radio" name="task246" checked> 14:00 세한문 중간고사</td></tr>
+		<tr><td><input type="radio" name="task247" checked> 18:10 ~ 20:10 시융관</td></tr>
+		<tr><td><input type="radio" name="task248" checked> 20:30 펄티펄 회의</td></tr>
+		<tr><td class="time">10.30</td><td><input type="radio" name="task249" checked> 북스컬프쳐 마감</td></tr>
+		<tr><td class="time" rowspan="2">10.31</td><td><input type="radio" name="task250" checked> 14:00 기입디 - 북스컬프쳐 마감</td></tr>
+		<tr><td><input type="radio" name="task251" disabled> 18:10 ~ 20:10 시융관</td></tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오래 기억될 사</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      color: white;
+      margin: 0;
+      height: 100vh;
+      position: relative;
+    }
+
+    #clickable,
+    #clickable_2 {
+      position: absolute; /* 중앙 배치를 위해 절대 위치 설정 */
+      top: 93%; /* 화면 아래쪽 위치 */
+      left: 50%; /* 화면 중앙 */
+      transform: translate(-50%, -50%); /* 정확한 중앙 배치 */
+      cursor: pointer;
+    }
+
+    #clickable {
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      border: 2px solid black;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+      z-index: 2; /* 위쪽에 위치 */
+    }
+
+    #clickable_2 {
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.5); /* 반투명 배경 */
+      border-radius: 50%;
+      z-index: 1; /* 아래쪽에 위치 */
+    }
+    #memory {
+     position: absolute;
+     top: 5%;
+     font-size: 17px;
+     background-color: #cecece;
+     color: black;
+     border-radius: 50px;
+     padding: 7px;
+     text-align: center;
+     font-family: "Apple SD Gothic Neo", "Nanum Gothic", sans-serif;
+
+    }
+    #text {
+      margin-left: 15px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-family: "Apple SD Gothic Neo", "Nanum Gothic", sans-serif;
+      text-align: center;
+    }
+
+    #yellow {
+      font-family: "Apple SD Gothic Neo", "Nanum Gothic", sans-serif;
+      color: #FFDD00;
+    }
+  </style>
+</head>
+<body>
+  <span id="memory">Take your Picturefor Memory!</span>
+  <script>
+    let video; // 카메라 피드 변수
+    let countdown = 0; // 타이머 초기값
+    let timerActive = false; // 타이머 활성화 상태
+    let hideTextTime = false; // 글자 숨김 상태
+    let showLines = true; // 선을 표시할지 여부
+
+    function setup() {
+      createCanvas(640, 477); // 캔버스 크기 설정
+      video = createCapture(VIDEO); // 카메라 피드 활성화
+      video.size(640, 477);
+      video.hide(); // 비디오 요소 숨기기 (캔버스에서만 보이게)
+
+      // 클릭 가능한 원 생성
+      const clickable = createDiv(); // 작은 원
+      clickable.style('width', '50px');
+      clickable.style('height', '50px');
+      clickable.style('background-color', 'white');
+      clickable.style('border-radius', '50%');
+      clickable.style('border', '2px solid black');
+      clickable.style('position', 'absolute');
+      clickable.style('top', '93%');
+      clickable.style('left', '50%');
+      clickable.style('transform', 'translate(-50%, -50%)');
+      clickable.style('cursor', 'pointer');
+      clickable.style('z-index', '2');
+
+      const clickable2 = createDiv(); // 큰 원
+      clickable2.style('width', '60px');
+      clickable2.style('height', '60px');
+      clickable2.style('background-color', 'rgba(255, 255, 255)');
+      clickable2.style('border-radius', '50%');
+      clickable2.style('position', 'absolute');
+      clickable2.style('top', '93%');
+      clickable2.style('left', '50%');
+      clickable2.style('transform', 'translate(-50%, -50%)');
+      clickable2.style('z-index', '1');
+
+      // 클릭 이벤트
+      clickable.mousePressed(() => {
+        if (!timerActive) {
+          startCountdown();
+        }
+      });
+    }
+
+    function draw() {
+      background(0); // 검정 배경
+      image(video, 0, 0); // 캔버스에 비디오 출력
+      line(0,0,25,0);
+      line(0,0,0,25);
+      line(835,0,860,0);
+      line(860,0,860,25);
+      line(0,615,0,640);
+      line(0,640,25,640);
+      line(835,640,860,640);
+      line(860,615,860,640);
+
+      if (showLines) {
+        // 선 그리기 (격자 표시)
+        stroke('#EDEDED');
+        line(286, 0, 286, 640);
+        line(574, 0, 574, 640);
+        line(0, 213, 860, 213);
+        line(0, 427, 860, 427);
+      }
+
+      // 카운트다운 표시
+      if (timerActive && !hideTextTime) {
+        fill(255, 255, 255);
+        textSize(100);
+        textFont('Monospace');
+        textAlign(CENTER, CENTER);
+        text(`${countdown}!`, width / 2, height / 2);
+      }
+    }
+
+    function startCountdown() {
+      countdown = 3; // 타이머 초기값
+      timerActive = true;
+
+      const interval = setInterval(() => {
+        countdown--;
+        if (countdown <= 0) {
+          clearInterval(interval); // 타이머 종료
+          hideTextTime = true; // 글자 숨김 상태
+          showLines = false; // 선 숨기기
+
+          setTimeout(() => {
+            saveCanvas('captured_image', 'png'); // 사진 캡처 후 저장
+            hideTextTime = false; // 글자 다시 표시 가능
+            showLines = true; // 선 다시 표시
+            timerActive = false; // 타이머 상태 초기화
+          }, 1000); // 1초 후 사진 저장
+        }
+      }, 1000); // 1초 간격
+    }
+  </script>
+  <div id="text">슬로모션&nbsp; &nbsp;&nbsp;비디오 &nbsp; &nbsp;&nbsp;<span id="yellow">사진</span> &nbsp; &nbsp;&nbsp;인물사진 &nbsp; &nbsp;&nbsp;파노라마</div>
+</body>
+</html>

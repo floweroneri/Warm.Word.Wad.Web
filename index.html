@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>image</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<style>
+        @media (max-width: 768px) {
+            body { font-size: 14px; }
+            h1 { font-size: 50px; }
+            .letter, #about { font-size: 18px; width: 90%; }
+            iframe { width: 95%; }
+            img { width: 100%; }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 40px; }
+            .letter { font-size: 16px; padding: 20px; }
+            iframe { width: 100%; }
+            img { width: 100%; }
+        }
+
+
+        @font-face {
+        font-family: 'DGM';
+        src: url('DungGeunMo.otf') format('opentype');
+        }
+		body {
+	        font-family: "DGM";
+			background-color: #ff0000;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		    background: linear-gradient(to bottom, 
+		        #FF0000, /* 빨강 */
+		        #fe5f00, /* 주황 */
+		        #FFFF00, /* 노랑 */
+		        #00fe58, /* 초록 */
+		        #0070ff, /* 파랑 */
+		        #0007d9, /* 남색 */
+		        #390090  /* 보라 */
+		    );
+		    background-size: 100% 700%; /* 7개의 색을 수직으로 나눔 */
+		    transition: background-position 0.3s ease-out;		
+				}
+		h1 {
+			margin-top: 30px;
+			margin-bottom: 20px;
+			font-size: 70px;
+		}
+		#h1 {
+			color: black;
+		}
+		#button_toptop {
+			background-color:#d0d0d0;
+			color: #ffffff;
+			position: fixed;
+			left: 95%;
+			bottom: 20px;
+			border: 10px solid #d0d0d0;
+			border-style: ridge;
+			padding: 3px;
+		}
+		#wwww {
+			position: fixed;
+		}
+		#subtitle {
+			margin-top: 120px;
+			text-align: center;
+		}			
+		#about {
+			margin-top: 60px;
+			margin: 120px;
+			line-height: 1.5;
+			word-break: keep-all;
+			font-size: 30px;
+
+		}
+		.letter {
+			margin: 100px;
+			margin-bottom: 200px;
+			padding: 60px;
+			line-height: 1.6;
+			word-break: keep-all;
+			font-size: 30px;
+			background-color: #ffffff;
+			border: 5px solid #484848;
+			width: 70%;
+			justify-content: center;
+
+		}
+		#description {
+			margin-top: 20px;
+			margin-bottom: 200px;
+			padding: 60px;
+			padding-left: 100px;
+			padding-right: 100px;
+			line-height: 1.5;
+			word-break: keep-all;
+			font-size: 25px;
+			background-color: #DDDDDD;
+			color: #000000;
+			border: 5px solid #000000;
+			width: 40%;
+			justify-content: center;
+			text-align: center;
+			border-style: ridge;
+		}
+		#href_you 
+		{
+		color:#FF0000;
+		margin-bottom: 200px;
+		line-height: 1.8;
+		}
+
+		#href_iii 
+		{
+		color:#fe5f00;
+		margin-bottom: 200px;
+		line-height: 1.8;
+		}
+		#href_someone
+		{
+		color:#FFFF00;
+		margin-bottom: 200px;
+		line-height: 1.8;	
+		}
+
+		#href_joljak
+		{
+		color:#0070ff;
+		margin-bottom: 200px;
+		line-height: 1.8;	
+		}
+
+		#href_now
+		{
+		color:#00fe58;
+		margin-bottom: 200px;
+		line-height: 1.8;	
+		}
+
+		#href_first
+		{
+			color: #0007d9;
+			margin-bottom: 200px;
+			line-height: 1.8;
+		}
+
+
+		#href_forward
+		{
+		color:#390090;
+		margin-bottom: 200px;
+		line-height: 1.8;	
+		}
+
+		div {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;	
+		}
+		#src {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		img {
+			margin: 15px;
+			width: 80%;
+			border: 10px solid #d0d0d0;
+			border-style: ridge;
+		}
+		#img_3 {
+			width: 80%;
+		}
+		#blank {
+			width: 30px;
+			height: 30px;
+			border: 1px solid black;
+		}
+		iframe {
+			width: 80%; /* iframe 너비 */
+			aspect-ratio: 16 / 9; /* 비율을 16:9로 설정 */
+			margin: 10px; /* 위아래 여백 */
+			margin-bottom: 100px;
+			overflow: hidden; /* iframe 내부 스크롤 숨김 */
+			border:none;
+
+		}
+		a {
+			text-decoration: none;
+			font-weight: 600;
+			color: #ff00ff;
+		}
+		#button {
+			color: white;
+			margin: 5px;
+			padding: 2px;
+			border: 5px solid #c3c2c2;
+			background-color: #c3c2c2;
+			font-size: 20px;
+			border-style: ridge;
+		}
+		iframe::-webkit-scrollbar { display: none;}
+		@keyframes scroll-gradient {
+		0% {
+			background-position: 0% 0%;
+		}
+		100% {
+			background-position: 0% 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="top"></div>
+	<h1 id="wwww"><a href="#top" id="h1">Warm.Word.Wad.Web</a></h1>
+	<div id="subtitle">
+		<p>따뜻한 단어뭉치 웹.<br><br>2024</p>
+	</div>
+	<a href="#top" id="button_toptop">⬆︎</div></a>
+	<!-- <p id="about"> This website was created as a final project for the *Generative II* class in the second-year Visual Design program at the University of Seoul. The theme of the final project is *"Record and Choice,"* allowing students to freely implement anything on the web related to the keyword. The student who developed this website (the author of this text) decided to use letters they had previously received for the project. The goal was to select a few words from these heartfelt, text-filled letters and visually express them.
+		<br>For the project, a total of three letters were selected, from which seven specific phrases were chosen. In essence, this site serves as a kind of archive that visually showcases the seven selected phrases from the three chosen letters received over time.
+		<br><br>
+		이 웹사이트는 서울시립대학교 디자인학과 시각디자인 전공 2학년 수업 중 제너러티브II 수업의 기말과제를 위해 제작되었다. 기말과제의 주제는 ‘기록과 선택’으로 키워드와 관련된 이상 무엇이든 자유롭게 웹 상에서 구현할 수 있다. 이 웹사이트를 개발한 학생은(이 글을 쓴 장본인이다.) 과제를 위해 이전에 받았던 편지를 이용하기로 했다. 정성 어린 마음이 담긴 텍스트가 기록되어 있는 편지들 중 몇 단어의 묶음을 선택해 이를 시각적으로 표현하는 것이다. 과제수행을 위해 총 3개의 편지가 선택되었고, 그 가운데 총 7개의 구(phrase)가 선택되었다. 즉, 이 사이트는 그동안 받았던 편지들 중 3개의 선택된 편지글에서 그 중 일곱 개의 선택된 언어들이 시각적으로 구현된 것을 모은 일종의 아카이브다.
+		</p> -->
+		<p id="about">This website was created as part of the final project for the Generative II course, a second-year class in the Visual Design Department at the University of Seoul. The theme of the final project is “Record and Choice”, and students were given the freedom to implement anything related to this keyword on the web. The student who developed this website (the very author of this text) decided to visually interpret certain selected words from existing personal records and chose to use letters as the medium.
+		<br>
+		Why letters, out of all the various records? Because, living life squeezed between one deadline and another like cheese between slices of bread, this moment feels like one where encouragement and support for oneself are sorely needed! While the desire to spend quality time with loved ones is overwhelming, time is far too scarce to do so. Thus, the student thought that using heartfelt letters filled with warm words as part of this project might be a good alternative since they would at least be viewed frequently. (And the actual effect turned out to be quite satisfying!)
+		<br>
+		In the end, three letters were chosen, and among them, seven phrases were selected.
+		<br><br>
+		이 웹사이트는 서울시립대학교 시각디자인학과 2학년 수업 중 제너러티브II 수업의 기말과제를 위해 제작되었다. 기말과제의 주제는 ‘기록과 선택’으로 키워드와 관련된 이상 무엇이든 자유롭게 웹 상에서 구현할 수 있다. 이 웹사이트를 개발한 학생은(이 글을 쓴 장본인이다.) 기존에 보유한 기록물 중 일부 특정 단어를 선택하여 이를 시각적으로 구현해 보자는 시도를 결심하였고, 지금껏 받아온 편지를 기록매체로 활용하기로 했다. 하필 많은 기록물 중에 왜 편지냐 하면. 샌드위치 빵에 낀 치즈마냥 마감과 마감 사이에 끼인 채 사는 현 시점, 스스로를 향한 응원과 격려가 너무나도 필요한 순간이기 때문이다 ! 소중한 사람들과 함께 즐거운 시간을 보내고 싶은 마음이 굴뚝같지만 그러기엔 시간이 너무 없다. 따라서 정성 어린 마음과 따뜻한 언어가 담긴 편지를 과제로 이용하면 자주 쳐다보게 되니까 그나마 낫지 않을까 하는 마음으로 편지를 택했다. (실제 효과는 꽤 괜찮은 것 같다..) 결국 총 3개의 편지가 선택되었고,<a href="#src" id="button">원본보기</a> 그 가운데 7개의 구(pharse)가 선택되었다.<a href="#description" id="button">설명보기</a>
+		</p>
+		<p id="letter_content">
+			<p class="letter" id="letter_1">
+				안녕 ! 난 지금 홍콩에서 한국으로 가는 비행기 안이야.<br>
+				<a href="#you">치열한 도시에 사는 더 치열한 네</a>가 생각나는 엽서를 샀어.
+				<br><br>
+				내가 너에게 이 엽서를 줄 때는 2024년이 거의 반절이 지났겠다.
+				<br>남은 2024년도 너를 가득 채우는 시간을 보내길 바랄게.
+			</p>
+			<p class="letter" id="letter_2">
+				이레 페이퍼네. 적잖이 감동 받았어. 고마워. 고마워.<br>
+				요즘 그런 생각을 했거든. <a href="#someone">누군가가 쓴 나에 대한 글</a>을 읽고 싶다는 생각.<br><br>
+				지금의 <a href="#iii">복잡한 나</a>를 멋지다고 표현해줘서 고마워.<br>
+				난 요즘 내가 겁쟁이라고 생각 하거든. 난 아직 멀었어.<br>
+				<br>
+				벌써 5월 말이고 6월이 코앞이다. 시간 너무 빨라. 미친 속도다 진짜.<br>
+				우리가 서울에서 자주 만나며 지지고 볶고 한 시간들.<br>참 소중했고 소중해. 그치?<br>
+				너도 나에게 소중한 친구야. 재밌게 살아보자. <a href="#now">지금을 즐기자</a>.<br>
+				<br>
+				5월의 마지막 금요일. 행복하게 보내렴
+			</p>
+			<p class="letter" id="letter_3">
+			레야아 <a href="#joljak">졸작을 마친 걸</a> 진심으로 축하한다!! 그간 너가 많이 고생하는<br>
+			모습 보면서 걱정하기도 했는데 결국 잘 마친 것 같아 보기 좋다!! ♥︎<br>
+			정말 수고 많았어요. 난 사실 너 처음 봤을 때 이렇게 가까워질 줄 생각<br>
+			못할 만큼 니가 커 보였어(실제로도 크긴 함ㅋㅋ) 
+			많은 동기들에게 <a href="#first">먼저<br>
+			다가가려 노력</a>하는 모습이 멋져보였단 말이야. 그때의 너든 지금의 너든<br>
+			많이 고민하고 원하는 방향으로 나아가려 하는 넌 진짜 멋진 애야.<br>
+			내 옆에 있어줘서 고맙닷!! <a href="forward">앞으로도 함께해요</a>ㅋ<br>
+		</p>
+	</p>
+	<h2>Description</h2>
+	<p id="description">
+		<a href="#you" id="href_you">* 치열한 도시에 사는 더 치열한 너 *</a><br>9~10월의 할 일 계획을 아카이빙하여 table로 정리하였다.<br><br>
+		<a href="#iii" id="href_iii">* 복잡한 나 *</a> <br>‘나’라는 존재는 무수한 단세포가 모여 만들어진 복합적인 유기체다. 이러한 점에서  p5.js의 createCapture 함수를 활용해 단순 도형으로 결합된 형태의 이미지를 표현하였다.<br><br>
+		<a href="#someone" id="href_someone">* 누군가가 쓴 나에 대한 글 *</a><br>누군가가 누군가에게 글을 쓸 수 있게끔 자리를 마련해주는 공간을 웹으로 표현한다 !<br><br>
+		<a href="#now" id="href_now">* 지금을 즐기자 *</a><br>공간의 제한을 받지 않는다는 점에서 음악을 참 사랑한다. 따라서 어디에 있더라도 종종 즐겨 듣는 앨범들 중 20개를 선정해 아카이빙하였다. <br><br>
+		<a href="#joljak" id="href_joljak">* 졸작을 마친 걸 *</a><br>2024년 1학기 때 본전공(도시공학과)에서 진행했던 졸업작품 프로젝트를 보여준다. <br><br>
+		<a href="#first" id="href_first">* 먼저 다가가려 노력 *</a><br> 용기내어 먼저 다가간 사람들에게 연락한 텍스트를 모으고, 이러한 데이터를 분석 및 유형을 분리하며 통계를 낸다.일명 간택의 통계. 구글 스프레드시트로 제작하였다.<br><br>
+		<a href="#forward" id="href_forward">* 앞으로도 함께해요 *</a><br>같은 기억 공유를 많이많이 하고 싶다는 의미에서…^^ 사진 한 방 찍고 가세요…<br>
+	</p>	
+	<h2 id="you">-------------------- 치열한 도시에 사는 더 치열한 너 --------------------</h2>
+	<iframe src="nm_1.html"></iframe>
+	<h2 id="iii">-------------------- 복잡한 나 --------------------</h2>
+	<iframe src="nm_3.html"></iframe>
+	<h2 id="someone">-------------------- 누군가가 쓴 나에 대한 글 --------------------</h2>
+	<iframe src="https://floweroneri111.mycafe24.com/index.php"></iframe>
+	<h2 id="now">-------------------- 지금을 즐기자 --------------------</h2>
+	<iframe src="nowhappy.html"></iframe>
+	<h2 id="joljak">-------------------- 졸작을 마친 걸 --------------------</h2>
+	<iframe src="https://uos-urbanscience.org/archives/uos_portfolio/active-ground-세운-도심-기능-회복을-도모하는-새로운-문화여"></iframe>
+	<h2 id="first">-------------------- 먼저 다가가려 노력 --------------------</h2>
+	<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSiGAGs6eUzTV4pgO3kxdwcBJgs8Grzl3AHxxNnIaesUarfPeVUca-T1QWcD1OO9Llg6qgTOw7sml3G/pubhtml"></iframe>
+	<h2 id="forward">-------------------- 앞으로도 함께해요 --------------------</h2>
+	<iframe src="orae.html"></iframe>
+	<h1>* 원 본 보 기 *</h1>
+	<div id="src">
+			<img src="2024.05_2.JPG">
+			<img src="2024.05_1.JPG">
+			<img src="2023_05_26.png" id="img_3">
+	</div>
+	<script>
+		// JavaScript로 스크롤 위치에 따라 배경을 움직이도록 조정
+		window.addEventListener('scroll', () => {
+			const scrollPosition = window.scrollY;
+			const maxHeight = document.body.scrollHeight - window.innerHeight;
+			const percentage = scrollPosition / maxHeight;
+			document.body.style.backgroundPosition = `0% ${percentage * 100}%`;
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>즐겨찾는 앨범</title>
+    <style>
+ <style>
+   * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        height: auto;
+        background-color: #ffffff;
+        font-family: "Apple SD Gothic Neo", "Nanum Gothic", sans-serif;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 40px;
+        padding-right: 100px;
+        padding-left: 100px; /* 화면 안에서 유지되는 패딩 */
+        cursor: wait;
+    }
+    body::-webkit-scrollbar { display: none;}
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%; /* 너비 명시 */
+    }
+
+
+
+    #redbox {
+        padding-top: 20px;
+        width: 280px;
+        height: 250px;
+        background-color: #EFEFEF;
+        border: 0.5px solid #E2E2E2;
+        box-shadow: 0px 10px 5px -1px #EDEDED;
+        border-radius: 10px;
+        margin: 20px 0; /* 다른 요소와 간격 추가 */
+        display: grid;
+        place-items: center; /* grid로 중앙 배치 */
+        position: relative; /* 자식 요소의 절대 위치를 설정하기 위해 필요 */
+    }
+
+    .heart {
+        width: 87px; /* 20% 크기 감소 */
+        height: 87px; /* 20% 크기 감소 */
+        background-color: #0253FF;
+        transform: rotate(-45deg);
+        position: relative;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: '';
+        position: absolute;
+        width: 87px;
+        height: 87px;
+        background-color: #0253FF;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -45px;
+        left: 0;
+    }
+
+    .heart::after {
+        top: 0;
+        left: 45px;
+    }
+
+    #container_1 {
+        display: flex;
+        margin: 2px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    #box {
+        margin: 10px;
+        width: 250px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #EFEFEF;
+    }
+    #randomPlay {
+                margin: 10px;
+        width: 250px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #EFEFEF;
+    }
+    .box_t {
+        text-align: center;
+        color: #0253FF;
+        font-size: 20px;
+        cursor: pointer;
+
+    }
+    a.box_t:hover::after {
+        content: none; /* 아무것도 뜨지 않게 함 */
+    }
+    #text {
+        font-size: 25px;
+        font-weight: 500;
+        margin-bottom: 2px;
+    }
+
+    #font_r {
+        font-size: 20px;
+        color: #0253FF;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border: 0.5px solid #ccc;
+    }
+
+    td.row_1 {
+        width: 250px;
+        padding: 10px;
+        border: none;
+        padding-right: 40px;
+    }
+
+    #cell_1 {
+        border-top : 0.5px solid #ccc;
+    }
+
+    img {
+        border-radius: 10px;
+    }
+
+    td.row_1 img {
+        width: 250px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    td.row_2, td.row_3 {
+        border-left: none;
+        border-right: none;
+    }
+
+    td.row_2 {
+        width: 450px;
+    }
+
+    td.row_3 {
+        text-align: right;
+        margin-right: 40px;
+        padding-right: 40px;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+
+    .who {
+        font-size: 17px;
+        color: #9F9F9F;
+    }
+
+    a {
+        font-size: 7px;
+        text-decoration: none;
+        color: #0253FF;
+    }
+
+    a:hover::after {
+        content: '들으러 가기 ...'; /* hover 시에 추가할 텍스트 */
+        font-family: "Apple SD Gothic Neo", "Nanum Gothic", sans-serif;
+        font-size: 17px;
+        color: #555;
+        position: absolute;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+        transition: opacity 0.3s;
+    }
+
+    </style>
+</head>
+<body>
+<div id="foundbox"></div>
+<div id="redbox">
+    <div class="heart"></div>
+</div>
+<div id="text">즐겨찾는 앨범</div>
+<div id="font_r">floweroneri</div>
+<span id="container_1">
+    <div id="box"><a href="https://youtube.com/playlist?list=OLAK5uy_nzIr_b78kxs5tCgcN4Ztf9hthMVuL9dPw&si=08fro2AEsV0Kgr19" class="box_t" target="_blank">재생</a></div>
+     <div id="randomPlay" class="box_t">임의 재생</div>
+</span>
+    <div>
+    <table>
+        <tbody>
+            <tr>
+                <td class="row_1" id="cell_1"><img src="https://i.scdn.co/image/ab67616d0000b273bd16eda2468ee07ef0bc6fa1" ></td>
+                <td class="row_2"><p class="name">Gelato<br><span class="who">boylife</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_nzIr_b78kxs5tCgcN4Ztf9hthMVuL9dPw&si=prC2H53kRzCQLCfO" target="_blank" title="들으러 가기..">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://i.scdn.co/image/ab67616d0000b27334f21d3047d85440dfa37f10"></td>
+                <td class="row_2"><p class="name">The Land Is Inhospital and So Are We<br><span class="who">Mitski</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_kMVpS0UoDNHpZZ_IXNlcHlWvc6bITFbAs&si=GdqW4qyMzNzB7hz4" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://i.namu.wiki/i/6IEf5Xn3guD0gIxtl3GisIxBuAXdHILkFzj-7-begw4iAzHdK21EpwlkKXPzwBvLx5pzLiKw-kigxnooMLJvaw.webp"></td>
+                <td class="row_2"><p class="name">Blonde<br><span class="who">Frank Ocean</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_kClWWfWghQXro7ONQ-DfH3RZ1oxiu0kMA&si=Hvy14jK_ydWC6OyZ" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://image.bugsm.co.kr/album/images/500/351118/35111872.jpg"></td>
+                <td class="row_2"><p class="name">"L"<br><span class="who">The Volunteers</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_l7ZZ_ZTP2prEIDwOjHDUCJse2NIKRj8s0&si=YjfanHHrmmkR843S" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://i.scdn.co/image/ab67616d0000b27347e1c56a0025e2ee767c1dca"></td>
+                <td class="row_2"><p class="name">Paradiso<br><span class="who">Barry walsh</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_kmmLRhhT4vlY9umIyP6dOG80FECYc2Ufk&si=iwXA2QBdhmNglq3u" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://f4.bcbits.com/img/a2508585393_10.jpg"></td>
+                <td class="row_2"><p class="name">Sunset Rollercoaster on Audiotree Live-EP<br><span class="who">Sunset Rollercoaster</span></td>
+                <td class="row_3"><a href="https://youtu.be/slUc-4WCnhc?si=wkqpegBhLy6QAYwU" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://visla.kr/wp/wp-content/uploads/2024/07/20240710_2.jpg"></td>
+                <td class="row_2"><p class="name">AAA<br><span class="who">혁오 & Sunset Rollercoaster</span></td>
+                <td class="row_3"><a href="https://youtu.be/MUHadUugJ9g?si=A4FJHGeosvknOibV" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://i.scdn.co/image/ab67616d0000b2732420365b61d3bfa992f89435"></td>
+                <td class="row_2"><p class="name">Kokyuu<br><span class="who">Lily Chou Chou</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_nrxtDaW31fja4eh5HZQaaxeTe5e9EK1o0&si=1BAIqVYNagXgUbgA" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1b/e7/45/1be7456b-3cb5-666c-6e48-a46d443aa875/5_001_Levorica_Lily_Chou_Chou-Sunday_Morning.jpg/600x600bf-60.jpg"></td>
+                <td class="row_2"><p class="name">Sunday Morning<br><span class="who">Levorica & Lily Chou Chou</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_mEBvnI3QmSXVx71TDafsxECmY7RpS0DP8&si=9dcht9lqBvUwJGi7" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://media.pitchfork.com/photos/5929ac5c5e6ef959693218f8/master/pass/dbfa1978.jpg"></td>
+                <td class="row_2"><p class="name">Carrie & Lowell<br><span class="who">Sufjan Stevens</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_nnb1RaXtqTSMi7dZFxR0YdIm3hxr5RaJc&si=YyGsIwW3Luzpkr8U" target="_blank">● ● ●</a></td>
+            </tr>
+                <td class="row_1"><img src="https://i.scdn.co/image/ab67616d00001e02f31378c188c596a47669a083"></td>
+                <td class="row_2"><p class="name">African Swim and Manny & Lo - Two Film Scores by John Lurie<br><span class="who">John Lurie</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_lUPPtw7ObOIeMQnzIgudgoy70DVJ1fywg&si=oJao6YHGyJzfI8t8" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://image.bugsm.co.kr/album/images/500/204607/20460779.jpg"></td>
+                <td class="row_2"><p class="name">안부<br><span class="who">김오키</span></td>
+                <td class="row_3"><a href="https://youtu.be/LMltvvD9HDU?si=6Lyh_BC2QXeNy-xF" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://i.namu.wiki/i/THwo-HPVAh9Pbu_pb-axW6r2LgO32VwbsF3tth4Ya8-hSqr6ON6vbeNoKHAH0YhmUNwJh6187q3OpcRtTQY9fg.webp"></td>
+                <td class="row_2"><p class="name">NewJeans 2nd EP 'Get Up'<br><span class="who">뉴진스</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_mBRM8NMgE_F9JTRA7zKpmETOh0H1VnPe4&si=xqvhsFxm8aCvc90H" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://f4.bcbits.com/img/a1587750761_65">
+                <td class="row_2"><p class="name">~~~<br><span class="who">Ana Roxanne</span></td></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_mYGyFDQPpqXN7_9MLtuRS35__kj7-BN60&si=CJUeEi3IYAhtljcF" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://i.scdn.co/image/ab67616d0000b273c3782ba6ba594fa43c2b9ebd"></td>
+                <td class="row_2"><p class="name">Komachi<br><span class="who">冥丁</span></td>
+                <td class="row_3"><a href="https://youtu.be/R0jrT8fjcUU?si=Ae-DgYV86SThZWkj" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://upload.wikimedia.org/wikipedia/en/2/27/Let_Go_cover.png"></td>
+                <td class="row_2"><p class="name">Let Go<br><span class="who">Avril Larvigne</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_kFOSQWseq5wpgCXyLIdXL8SUuDf--kRok&si=09uBxYVxNqneqlRQ" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/6f/c1/23/6fc12356-a3fd-6799-6620-27487ccc1666/3616405569324_cover.jpg/1200x630bb.jpg"></td>
+                <td class="row_2"><p class="name">Marshmallow<br><span class="who">The Sweet Enoughs</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_m1Fo1Xc17eLm1mOVVuQdW4qOIELSjqjjE&si=GMEht-EcL490rASJ" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://f4.bcbits.com/img/a2537451088_10.jpg"></td>
+                <td class="row_2"><p class="name">Liquid / Devotion & Toungue Street Blue<br><span class="who">Josiah Steinbrick</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_lEQcUCe5_mqWU2WVuvvjEEesTT6awPJcg&si=kGC1SV1bETtSuEo3" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://m.media-amazon.com/images/I/61cXswWbtlL._UF1000,1000_QL80_.jpg"></td>
+                <td class="row_2"><p class="name">Flight to Denmark<br><span class="who">Duke Jordan</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_nuIoA_cEv0bJgqUBQ5aNycshtjM_eIfDc&si=l49GrRmyJTbmkw-o" target="_blank">● ● ●</a></td>
+            </tr>
+            <tr>
+                <td class="row_1"><img src="https://image.bugsm.co.kr/album/images/500/205954/20595403.jpg"></td>
+                <td class="row_2"><p class="name">작은마을<br><span class="who">이설아</span></td>
+                <td class="row_3"><a href="https://youtube.com/playlist?list=OLAK5uy_knxvH29rxfX-WCmqHcIMW-Xi7lqwP52Lo&si=Kss8JFOTrPL-uzkg" target="_blank">● ● ●</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+document.getElementById('randomPlay').addEventListener('click', function() {
+    const links = [
+        "https://youtube.com/playlist?list=OLAK5uy_nzIr_b78kxs5tCgcN4Ztf9hthMVuL9dPw&si=prC2H53kRzCQLCfO", 
+"https://youtube.com/playlist?list=OLAK5uy_kMVpS0UoDNHpZZ_IXNlcHlWvc6bITFbAs&si=GdqW4qyMzNzB7hz4", 
+"https://youtube.com/playlist?list=OLAK5uy_kClWWfWghQXro7ONQ-DfH3RZ1oxiu0kMA&si=Hvy14jK_ydWC6OyZ", 
+"https://youtube.com/playlist?list=OLAK5uy_l7ZZ_ZTP2prEIDwOjHDUCJse2NIKRj8s0&si=YjfanHHrmmkR843S", 
+"https://youtube.com/playlist?list=OLAK5uy_kmmLRhhT4vlY9umIyP6dOG80FECYc2Ufk&si=iwXA2QBdhmNglq3u", 
+"https://youtu.be/slUc-4WCnhc?si=wkqpegBhLy6QAYwU", 
+"https://youtu.be/MUHadUugJ9g?si=A4FJHGeosvknOibV", 
+"https://youtube.com/playlist?list=OLAK5uy_nrxtDaW31fja4eh5HZQaaxeTe5e9EK1o0&si=1BAIqVYNagXgUbgA", 
+"https://youtube.com/playlist?list=OLAK5uy_mEBvnI3QmSXVx71TDafsxECmY7RpS0DP8&si=9dcht9lqBvUwJGi7", 
+"https://youtube.com/playlist?list=OLAK5uy_nnb1RaXtqTSMi7dZFxR0YdIm3hxr5RaJc&si=YyGsIwW3Luzpkr8U", 
+"https://youtube.com/playlist?list=OLAK5uy_lUPPtw7ObOIeMQnzIgudgoy70DVJ1fywg&si=oJao6YHGyJzfI8t8", 
+"https://youtube.com/playlist?list=OLAK5uy_mYGyFDQPpqXN7_9MLtuRS35__kj7-BN60&si=CJUeEi3IYAhtljcF", 
+"https://youtube.com/playlist?list=OLAK5uy_mBRM8NMgE_F9JTRA7zKpmETOh0H1VnPe4&si=xqvhsFxm8aCvc90H", 
+"https://youtube.com/playlist?list=OLAK5uy_kFOSQWseq5wpgCXyLIdXL8SUuDf--kRok&si=09uBxYVxNqneqlRQ", 
+"https://youtube.com/playlist?list=OLAK5uy_m1Fo1Xc17eLm1mOVVuQdW4qOIELSjqjjE&si=GMEht-EcL490rASJ", 
+"https://youtube.com/playlist?list=OLAK5uy_lEQcUCe5_mqWU2WVuvvjEEesTT6awPJcg&si=kGC1SV1bETtSuEo3", 
+"https://youtube.com/playlist?list=OLAK5uy_nuIoA_cEv0bJgqUBQ5aNycshtjM_eIfDc&si=l49GrRmyJTbmkw-o", 
+"https://youtu.be/LMltvvD9HDU?si=6Lyh_BC2QXeNy-xF", 
+"https://youtube.com/playlist?list=OLAK5uy_mBRM8NMgE_F9JTRA7zKpmETOh0H1VnPe4&si=xqvhsFxm8aCvc90H", 
+"https://youtube.com/playlist?list=OLAK5uy_mBRM8NMgE_F9JTRA7zKpmETOh0H1VnPe4&si=xqvhsFxm8aCvc90H"
+    ];
+
+    const randomIndex = Math.floor(Math.random() * links.length);  // 랜덤 인덱스 선택
+    window.open(links[randomIndex], '_blank');  // 랜덤 링크로 새 탭 열기
+});
+
+</script>
+</body>
+</html>
